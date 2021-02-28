@@ -11,6 +11,7 @@ let START_NODE_ROW =12;
 let START_NODE_COL = 15;
 let FINISH_NODE_ROW = 12;
 let FINISH_NODE_COL = 43;
+alert("(Note: Incase of any problem with the grid relative to screen size, the browser zoom settings should be adjusted accordingly.)");
 
 /*
 const START_NODE_ROW = prompt("Please enter start-node row", 12);
@@ -791,10 +792,6 @@ export default class PathfindingVisualizer extends Component {
            </Dropdown.Menu>
            </Dropdown>
            </li>
-           <li id='visualize'><button id='startButtonStart' onClick={() => this.visualizeDijkstraFast()}>
-          Visualize 
-        </button></li>
-           <li className="navigation"><button onClick={() => window.location.reload(false)} id='startButtonClearBoard' href="#">Clear Board</button></li>
            <li className="dropdown">
            <Dropdown>
            <Dropdown.Toggle variant="success" id="dropdown-basic">
@@ -807,6 +804,10 @@ export default class PathfindingVisualizer extends Component {
            </Dropdown.Menu>
            </Dropdown>
            </li>
+           <li id='visualize'><button id='startButtonStart' onClick={() => this.visualizeDijkstraFast()}>
+          Visualize 
+        </button></li>
+           <li className="navigation"><button onClick={() => window.location.reload(false)} id='startButtonClearBoard' href="#">Clear Board</button></li>
            <li className="navigation"><button id='help' onClick={() => this.changeLocation()}>How to use?</button></li>
          </ul>
        </div>
@@ -901,4 +902,5 @@ const getNewGridWithNodeVisited = (grid, row, col) => {
   newGrid[row][col] = newNode;
   return newGrid;
 };
+
 
