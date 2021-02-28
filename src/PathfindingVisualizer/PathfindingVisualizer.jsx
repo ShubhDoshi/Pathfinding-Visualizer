@@ -798,9 +798,9 @@ export default class PathfindingVisualizer extends Component {
               Speed <span className="caret"></span>
            </Dropdown.Toggle>
            <Dropdown.Menu>
-           <Dropdown.Item onClick={() => this.visualizeDijkstraFast()} href="#/action-1"><p>Fast</p></Dropdown.Item>
-           <Dropdown.Item onClick={() => this.visualizeDijkstraMedium()} href="#/action-2"><p>Medium</p></Dropdown.Item>
-           <Dropdown.Item onClick={() => this.visualizeDijkstraSlow()} href="#/action-3"><p>Slow</p></Dropdown.Item>
+           <Dropdown.Item id="speed1" onClick={() => this.visualizeDijkstraFast()} href="#/action-1"><p>Fast</p></Dropdown.Item>
+           <Dropdown.Item id="speed2" onClick={() => this.visualizeDijkstraMedium()} href="#/action-2"><p>Medium</p></Dropdown.Item>
+           <Dropdown.Item id="speed3" onClick={() => this.visualizeDijkstraSlow()} href="#/action-3"><p>Slow</p></Dropdown.Item>
            </Dropdown.Menu>
            </Dropdown>
            </li>
