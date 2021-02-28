@@ -1,0 +1,137 @@
+.grid {
+    margin: 30px 0 0;
+  }
+body{
+  font-size: 0;
+}
+#row-0{
+  padding: 0px;
+  font-size: 3px;
+}
+  li{
+    background-color: rgb(31, 30, 30);
+    padding-right: 75px;
+    padding-left: 75px;
+    padding-top: 10px;
+  }
+  button{
+    background-color: rgb(31, 30, 30);
+  }
+  p{
+    padding-left: 10px;
+  }
+  p.a{
+    word-spacing: 100px;
+    padding-left: 100px;
+  }
+  #startButtonStart{
+    padding-top: 2px;
+    background-color: white;
+    width: 80px;
+    height: 35px;
+    border-radius: 5px;
+  }
+  #startButtonStart:hover{
+    background-color: rgb(211, 211, 211);
+  }
+  #visualize{
+    padding-top: 10px;
+  }
+  #actualStartButton{
+    padding-top: 5px;
+  }
+  #startButtonClearBoard{
+    background-color: rgb(71, 180, 71);
+    color: white;
+    border: black;
+    padding: 7px;
+  }
+  #mazePattern{
+    padding-left: 100px;
+  }
+  #startButtonClearBoard:hover{
+    background-color: rgb(6, 158, 6);
+  }
+  #help{
+    background-color: rgb(71, 180, 71);
+    color: white;
+    border: black;
+    padding: 7px;
+  }
+  #help:hover{
+    background-color: rgb(6, 158, 6);
+  }
+  .icons{
+    padding-right: 10px;
+  }
+  #unvisitedNode{
+    color: rgb(159, 241, 247);
+    padding-right: 2px;
+    width: 35px;
+    height: 15px;
+  }
+  #wallNode{
+    padding-right: 2px;
+    width: 35px;
+    height: 15px;
+    color:  rgb(2, 6, 63);
+  }
+  #shortestPathNode{
+    color: red;
+    padding-right: 2px;
+    width: 35px;
+    height: 15px;
+  }
+  #visitedNode{
+    color: yellow;
+    padding-right: 2px;
+    width: 35px;
+    height: 15px;
+  }
+  #startNode{
+    color: orange;
+    padding-right: 2px;
+    width: 35px;
+    height: 15px;
+  }
+  #id1{
+    background-color: orange;
+
+  }
+  #id2{
+    background-color: orange;
+  }
+  #targetNode{
+    color:  rgb(255, 2, 255);
+    padding-right: 2px;
+    width: 35px;
+    height: 15px;
+  }
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
+    padding: 10px;
+  }
+  .grid-item {
+    background-color:  rgb(185, 250, 255);
+    border: 0.5px solid rgba(4, 133, 219, 0.8);
+    padding: 10px;
+  }
+  #drag-1{
+    background-color: black;
+  }
+  #maze1:hover{
+    color: black;
+  }
+  #maze2:hover{
+    color: black;
+  }
+  #maze3:hover{
+    color: black;
+  }
+  #maze4:hover{
+    color: black;
+  }
+  #maze5:hover{
+    color: black;
+  }
