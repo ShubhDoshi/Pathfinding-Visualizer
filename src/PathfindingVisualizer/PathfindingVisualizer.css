@@ -45,6 +45,7 @@ body{
     color: white;
     border: black;
     padding: 7px;
+    border-radius: 5px;
   }
   #mazePattern{
     padding-left: 100px;
@@ -57,6 +58,7 @@ body{
     color: white;
     border: black;
     padding: 7px;
+    border-radius: 5px;
   }
   #help:hover{
     background-color: rgb(6, 158, 6);
