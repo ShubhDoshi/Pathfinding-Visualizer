@@ -116,6 +116,11 @@ export default class PathfindingVisualizer extends Component {
           'node node-shortest-path';
       }, 50 * i);
     }
+    if(nodesInShortestPathOrder.length<=1){
+      setTimeout(() => {
+      alert("Shortest Path Not Found!!");
+      },1000);
+    }
   }
 
   //implement dijkstra for finding shortest path for fast speed
