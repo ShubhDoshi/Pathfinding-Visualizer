@@ -11,19 +11,19 @@
     height: 20px;
   }
 }
-@media (max-width: 1200px) {
+@media (max-width: 1250px) {
   .node{
     width: 15px;
     height: 15px;
   }
 }
-@media (max-width: 900px) {
+@media (max-width: 950px) {
   .node{
     width: 10px;
     height: 10px;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 650px) {
   .node{
     width: 7px;
     height: 7px;
