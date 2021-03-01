@@ -5,6 +5,42 @@
   background-color:  rgb(206, 250, 253);
   display: inline-block;
 }
+@media (max-width: 1450px) {
+  .node{
+    width: 20px;
+    height: 20px;
+  }
+}
+@media (max-width: 1150px) {
+  .node{
+    width: 15px;
+    height: 15px;
+  }
+}
+@media (max-width: 860px) {
+  .node{
+    width: 10px;
+    height: 10px;
+  }
+}
+@media (max-width: 570px) {
+  .node{
+    width: 7px;
+    height: 7px;
+  }
+}
+@media (max-width: 400px) {
+  .node{
+    width: 5px;
+    height: 5px;
+  }
+}
+@media (max-width: 290px) {
+  .node{
+    width: 4px;
+    height: 4px;
+  }
+}
 
 .node-start{
   background-color:   orange;

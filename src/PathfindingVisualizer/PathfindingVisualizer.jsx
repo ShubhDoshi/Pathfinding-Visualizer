@@ -11,7 +11,7 @@ let START_NODE_ROW =12;
 let START_NODE_COL = 15;
 let FINISH_NODE_ROW = 12;
 let FINISH_NODE_COL = 43;
-alert("(Note: Incase of any problem with the grid relative to screen size, the browser zoom settings should be adjusted accordingly.)");
+
 
 /*
 const START_NODE_ROW = prompt("Please enter start-node row", 12);
@@ -778,6 +778,7 @@ export default class PathfindingVisualizer extends Component {
            <button onClick={() => window.location.reload(false)} id="refreshPage" className="navigation navbar-brand" href="#">Pathfinding Visualizer</button>
          </div>
          <ul className="nav navbar-nav">
+         <div className="col-lg-2.1 col-md-4 col-xs-12">
            <li id="mazePattern" className="navigation dropdown">
            <Dropdown>
            <Dropdown.Toggle variant="success" id="dropdown-basic">
@@ -792,6 +793,8 @@ export default class PathfindingVisualizer extends Component {
            </Dropdown.Menu>
            </Dropdown>
            </li>
+           </div>
+           <div className="col-lg-2 col-md-4 col-xs-12">
            <li className="dropdown">
            <Dropdown>
            <Dropdown.Toggle variant="success" id="dropdown-basic">
@@ -804,18 +807,26 @@ export default class PathfindingVisualizer extends Component {
            </Dropdown.Menu>
            </Dropdown>
            </li>
+           </div>
+           <div className="col-lg-2 col-md-4 col-xs-12">
            <li id='visualize'><button id='startButtonStart' onClick={() => this.visualizeDijkstraFast()}>
           Visualize 
         </button></li>
-           <li className="navigation"><button onClick={() => window.location.reload(false)} id='startButtonClearBoard' href="#">Clear Board</button></li>
+        </div>
+        <div className="col-lg-1 col-md-4 col-xs-12">
+           <li className="navigation"><button onClick={() => window.location.reload(false)} id='startButtonClearBoard' href="#">Clear</button></li>
+           </div>
+           <div className="col-lg-3 col-md-4 col-xs-12">
            <li className="navigation"><button id='help' onClick={() => this.changeLocation()}>How to use?</button></li>
+           </div>
          </ul>
        </div>
      </nav>
    </div>
    <div>
-    <p className="a"><FontAwesomeIcon icon={faSquareFull} id='startNode' />Start-Node <FontAwesomeIcon icon={faSquareFull} id='targetNode' />Target-Node <FontAwesomeIcon icon={faSquareFull} id='wallNode'/>Wall-Node <FontAwesomeIcon icon={faSquareFull} id='visitedNode'/>Visited-Nodes <FontAwesomeIcon icon={faSquareFull} id='unvisitedNode'/>Unvisited-Node <FontAwesomeIcon icon={faSquareFull} id='shortestPathNode'/>Shortest-path-Node </p>
+    <p className="a"><div className="col-lg-2 col-md-4 col-xs-12"><FontAwesomeIcon icon={faSquareFull} id='startNode' />Start-Node </div><div className="col-lg-2 col-md-4 col-xs-12"><FontAwesomeIcon icon={faSquareFull} id='targetNode' />Target-Node </div><div className="col-lg-2 col-md-4 col-xs-12"><FontAwesomeIcon icon={faSquareFull} id='wallNode'/>Wall-Node </div><div className="col-lg-2 col-md-4 col-xs-12"><FontAwesomeIcon icon={faSquareFull} id='visitedNode'/>Visited-Nodes </div><div className="col-lg-2 col-md-4 col-xs-12"><FontAwesomeIcon icon={faSquareFull} id='unvisitedNode'/>Unvisited-Node </div><div className="col-lg-2 col-md-4 col-xs-12"><FontAwesomeIcon icon={faSquareFull} id='shortestPathNode'/>Shortest-path-Node </div></p>
    </div>
+   <br/>
    </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
