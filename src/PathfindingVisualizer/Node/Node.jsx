@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './Node.css';
+import { Draggable, Droppable } from 'react-drag-and-drop'
 export default class Node extends Component {
   render() {
     const {
@@ -16,23 +17,25 @@ export default class Node extends Component {
     if (isFinish===true){
       extraClassName='node-finish';
       return (
-        <div
+        <Draggable
+          type="nodeOfGrid"
           id={`node-${row}-${col}`}
           className={`node ${extraClassName}`}
           onMouseDown={() => onMouseDown(row, col)}
           onMouseEnter={() => onMouseEnter(row, col)}
-          onMouseUp={() => onMouseUp()}></div>
+          onMouseUp={() => onMouseUp()}></Draggable>
       );
     }
     else if (isStart===true){
       extraClassName='node-start';
       return (
-        <div
+        <Draggable
+          type={'nodeOfGrid'}
           id={`node-${row}-${col}`}
           className={`node ${extraClassName}`}
           onMouseDown={() => onMouseDown(row, col)}
           onMouseEnter={() => onMouseEnter(row, col)}
-          onMouseUp={() => onMouseUp()}></div>
+          onMouseUp={() => onMouseUp()}></Draggable>
       );
     }
     else if (isWall===true){
@@ -40,12 +43,18 @@ export default class Node extends Component {
     }
 
     return (
-      <div
+      <Droppable
+        types={['nodeOfGrid']}
+        onDrop={this.onDrop.bind(this)}
         id={`node-${row}-${col}`}
         className={`node ${extraClassName}`}
         onMouseDown={() => onMouseDown(row, col)}
         onMouseEnter={() => onMouseEnter(row, col)}
-        onMouseUp={() => onMouseUp()}></div>
+        onMouseUp={() => onMouseUp()}></Droppable>
     );
   }
+  onDrop(data) {
+    alert(data);
+    // => banana 
+}
 }

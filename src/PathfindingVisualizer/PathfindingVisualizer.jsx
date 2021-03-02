@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Node from './Node/Node';
 import {dijkstra, getNodesInShortestPathOrder} from '../algorithms/dijkstra';
+import {bfs, getNodesInShortestPathOrderBFS} from '../algorithms/bfs';
 //import {bfs} from '../algorithms/bfs';
 import Dropdown from 'react-bootstrap/Dropdown'
 import { faSquareFull } from "@fortawesome/free-solid-svg-icons";
@@ -26,6 +27,8 @@ export default class PathfindingVisualizer extends Component {
     this.state = {
       grid: [],
       mouseIsPressed: false,
+      speed: 'fast',
+      algorithm: 'none',
     };
   }
 
@@ -38,7 +41,7 @@ export default class PathfindingVisualizer extends Component {
     const newGrid = getNewGridWithWallToggled(this.state.grid, row, col);
     this.setState({grid: newGrid, mouseIsPressed: true});
   }
-
+  
   handleMouseEnter(row, col) {
     if (!this.state.mouseIsPressed) return;
     const newGrid = getNewGridWithWallToggled(this.state.grid, row, col);
@@ -123,70 +126,66 @@ export default class PathfindingVisualizer extends Component {
     }
   }
 
-  //implement dijkstra for finding shortest path for fast speed
-  visualizeDijkstraFast() {
+  //implement dijkstra's algorithm for finding shortest path
+  visualize() {
     const {grid} = this.state;
     const startNode = grid[START_NODE_ROW][START_NODE_COL];
     const finishNode = grid[FINISH_NODE_ROW][FINISH_NODE_COL];
-    const visitedNodesInOrder = dijkstra(grid, startNode, finishNode);
-    const nodesInShortestPathOrder = getNodesInShortestPathOrder(finishNode);
-    this.animateDijkstraFast(visitedNodesInOrder, nodesInShortestPathOrder);
-  }
-
-  //implement dijkstra for finding shortest path for medium speed
-  visualizeDijkstraMedium() {
-    const {grid} = this.state;
-    const startNode = grid[START_NODE_ROW][START_NODE_COL];
-    const finishNode = grid[FINISH_NODE_ROW][FINISH_NODE_COL];
-    const visitedNodesInOrder = dijkstra(grid, startNode, finishNode);
-    const nodesInShortestPathOrder = getNodesInShortestPathOrder(finishNode);
-    this.animateDijkstraMedium(visitedNodesInOrder, nodesInShortestPathOrder);
-  }
-
-  //implement dijkstra for finding shortest path for slow speed
-  visualizeDijkstraSlow() {
-    const {grid} = this.state;
-    const startNode = grid[START_NODE_ROW][START_NODE_COL];
-    const finishNode = grid[FINISH_NODE_ROW][FINISH_NODE_COL];
-    const visitedNodesInOrder = dijkstra(grid, startNode, finishNode);
-    const nodesInShortestPathOrder = getNodesInShortestPathOrder(finishNode);
-    this.animateDijkstraSlow(visitedNodesInOrder, nodesInShortestPathOrder);
-  }
-  /*
-  getNodesInShortestPathOrderBFS(startNode,finishNode,previous) {
-    //let x=0;
-    /*for(let row=0;row<23;row++){
-        for(let col=0;col<57;col++){
-            if(row===12 && col>12 && col!==15){
-                alert(previous[row][col].col);
-            }
-        }
+    if (this.state.algorithm==='dijkstra'){
+      const visitedNodesInOrder = dijkstra(grid, startNode, finishNode);
+      const nodesInShortestPathOrder = getNodesInShortestPathOrder(finishNode);
+      if (this.state.speed==='fast'){
+        this.animateDijkstraFast(visitedNodesInOrder, nodesInShortestPathOrder);
+      }
+      else if(this.state.speed==='medium'){
+        this.animateDijkstraMedium(visitedNodesInOrder, nodesInShortestPathOrder);
+      }
+      else{
+        this.animateDijkstraSlow(visitedNodesInOrder, nodesInShortestPathOrder);
+      }
     }
-  alert(previous[12][27].row);
-  alert(previous[12][27].col);
-  const arr = [finishNode];
-  let currentNode = finishNode;
-  while (currentNode !== startNode && currentNode!==null) {
-    const {row,col} = currentNode;
-    currentNode=previous[row][col];
-    arr.push(currentNode);
+    else if (this.state.algorithm==='BFS'){
+      const visitedNodesInOrder= bfs(grid, startNode, finishNode);
+      const nodesInShortestPathOrder = getNodesInShortestPathOrderBFS(finishNode);
+      if (this.state.speed==='fast'){
+        this.animateDijkstraFast(visitedNodesInOrder, nodesInShortestPathOrder);
+      }
+      else if(this.state.speed==='medium'){
+        this.animateDijkstraMedium(visitedNodesInOrder, nodesInShortestPathOrder);
+      }
+      else{
+        this.animateDijkstraSlow(visitedNodesInOrder, nodesInShortestPathOrder);
+      }
+    }
+    else{
+      alert("Please select an algorithm");
+    }
   }
-  const nodesInShortestPathOrder=[];
-  for(let i=arr.length-1;i>=0;i--){
-      nodesInShortestPathOrder.push(arr[i]);
+
+  //Set Algorithm to Dijkstra
+  setAlgoToDijkstra(){
+    this.setState({algorithm: 'dijkstra'});
   }
-  return nodesInShortestPathOrder;
-}
-  visualizeBFS(){
-    const {grid} = this.state;
-    const startNode = grid[START_NODE_ROW][START_NODE_COL];
-    const finishNode = grid[FINISH_NODE_ROW][FINISH_NODE_COL];
-    //const visitedNodesInOrder= bfs(grid, startNode, finishNode);
-    const previous=bfs(grid, startNode, finishNode);
-    const nodesInShortestPathOrder = this.getNodesInShortestPathOrderBFS(startNode,finishNode,previous);
-    alert(nodesInShortestPathOrder);
-    /*this.animateDijkstra(visitedNodesInOrder, nodesInShortestPathOrder);
-  }*/
+
+  //Set Algorithm to BFS
+  setAlgoToBFS(){
+    this.setState({algorithm: 'BFS'});
+  }
+
+  //Change speed of visualization to fast
+  changeSpeedToFast(){
+    this.setState({speed: 'fast'});
+  } 
+
+  //Change speed of visualization to medium
+  changeSpeedToMedium(){
+    this.setState({speed: 'medium'});
+  } 
+
+  //Change speed of visualization to slow
+  changeSpeedToSlow(){
+    this.setState({speed: 'slow'});
+  } 
 
   //generates a maze using DFS
   mazeGeneration(grid){
@@ -783,7 +782,21 @@ export default class PathfindingVisualizer extends Component {
            <button onClick={() => window.location.reload(false)} id="refreshPage" className="navigation navbar-brand" href="#">Pathfinding Visualizer</button>
          </div>
          <ul className="nav navbar-nav">
-         <div className="col-lg-2.1 col-md-4 col-xs-12">
+         <div className="col-md-4 col-xs-12">
+         <li className="navigation dropdown">
+           <Dropdown>
+           <Dropdown.Toggle variant="success" id="dropdown-basic">
+              Algorithms <span className="caret"></span>
+           </Dropdown.Toggle>
+           <Dropdown.Menu>
+           <Dropdown.Item onClick={() => this.setAlgoToDijkstra()} href="#/action-1"><p>Dijkstra Algorithm</p></Dropdown.Item>
+           <Dropdown.Item href="#/action-2"><p>Bellman-Ford Algorithm</p></Dropdown.Item>
+           <Dropdown.Item onClick={() => this.setAlgoToBFS()} href="#/action-3"><p>Breadth First Search</p></Dropdown.Item>
+           </Dropdown.Menu>
+           </Dropdown>
+           </li>
+          </div>
+         <div className="col-md-4 col-xs-12">
            <li id="mazePattern" className="navigation dropdown">
            <Dropdown>
            <Dropdown.Toggle variant="success" id="dropdown-basic">
@@ -799,29 +812,29 @@ export default class PathfindingVisualizer extends Component {
            </Dropdown>
            </li>
            </div>
-           <div className="col-lg-2 col-md-4 col-xs-12">
+           <div className="col-md-4 col-xs-12">
            <li className="dropdown">
            <Dropdown>
            <Dropdown.Toggle variant="success" id="dropdown-basic">
               Speed <span className="caret"></span>
            </Dropdown.Toggle>
            <Dropdown.Menu>
-           <Dropdown.Item id="speed1" onClick={() => this.visualizeDijkstraFast()} href="#/action-1"><p>Fast</p></Dropdown.Item>
-           <Dropdown.Item id="speed2" onClick={() => this.visualizeDijkstraMedium()} href="#/action-2"><p>Medium</p></Dropdown.Item>
-           <Dropdown.Item id="speed3" onClick={() => this.visualizeDijkstraSlow()} href="#/action-3"><p>Slow</p></Dropdown.Item>
+           <Dropdown.Item id="speed1" onClick={() => this.changeSpeedToFast()} href="#/action-1"><p>Fast</p></Dropdown.Item>
+           <Dropdown.Item id="speed2" onClick={() => this.changeSpeedToMedium()} href="#/action-2"><p>Medium</p></Dropdown.Item>
+           <Dropdown.Item id="speed3" onClick={() => this.changeSpeedToSlow()} href="#/action-3"><p>Slow</p></Dropdown.Item>
            </Dropdown.Menu>
            </Dropdown>
            </li>
            </div>
-           <div className="col-lg-2 col-md-4 col-xs-12">
-           <li id='visualize'><button id='startButtonStart' onClick={() => this.visualizeDijkstraFast()}>
+        <div className="col-md-4 col-xs-12">
+           <li className="navigation"><button onClick={() => window.location.reload(false)} id='startButtonClearBoard' href="#">Clear Board</button></li>
+           </div>
+           <div className="col-md-4 col-xs-12">
+           <li id='visualize'><button id='startButtonStart' onClick={() => this.visualize()}>
           Visualize 
         </button></li>
         </div>
-        <div className="col-lg-1 col-md-4 col-xs-12">
-           <li className="navigation"><button onClick={() => window.location.reload(false)} id='startButtonClearBoard' href="#">Clear</button></li>
-           </div>
-           <div className="col-lg-3 col-md-4 col-xs-12">
+           <div className="col-md-4 col-xs-12">
            <li className="navigation"><button id='help' onClick={() => this.changeLocation()}>How to use?</button></li>
            </div>
          </ul>
