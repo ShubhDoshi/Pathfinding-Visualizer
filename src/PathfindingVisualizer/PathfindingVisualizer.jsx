@@ -4,12 +4,13 @@ import {dijkstra, getNodesInShortestPathOrder} from '../algorithms/dijkstra';
 import {bfs, getNodesInShortestPathOrderBFS} from '../algorithms/bfs';
 import {dfs, getNodesInShortestPathOrderDFS} from '../algorithms/dfs';
 import {aStar,getNodesInShortestPathOrderAStar} from '../algorithms/a-star';
+import {greedy,getNodesInShortestPathOrderGreedy} from '../algorithms/greedy';
 import Dropdown from 'react-bootstrap/Dropdown'
 import { faSquareFull } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './PathfindingVisualizer.css';
 
-let START_NODE_ROW =12;
+let START_NODE_ROW = 12;
 let START_NODE_COL = 15;
 let FINISH_NODE_ROW = 12;
 let FINISH_NODE_COL = 43;
@@ -186,6 +187,19 @@ export default class PathfindingVisualizer extends Component {
         this.animateDijkstraSlow(visitedNodesInOrder, nodesInShortestPathOrder);
       }
     }
+    else if(this.state.algorithm==='greedy'){
+      const visitedNodesInOrder= greedy(grid, startNode, finishNode);
+      const nodesInShortestPathOrder = getNodesInShortestPathOrderGreedy(finishNode);
+      if (this.state.speed==='fast'){
+        this.animateDijkstraFast(visitedNodesInOrder, nodesInShortestPathOrder);
+      }
+      else if(this.state.speed==='medium'){
+        this.animateDijkstraMedium(visitedNodesInOrder, nodesInShortestPathOrder);
+      }
+      else{
+        this.animateDijkstraSlow(visitedNodesInOrder, nodesInShortestPathOrder);
+      }
+    }
     else{
       alert("Please select an algorithm");
     }
@@ -209,6 +223,11 @@ export default class PathfindingVisualizer extends Component {
   //Set Algorithm to A*
   setAlgoToAStar(){
     this.setState({algorithm: 'a-star'});
+  }
+
+  //Set Algorithm to Greedy
+  setAlgoToGreedy(){
+    this.setState({algorithm: 'greedy'});
   }
 
   //Change speed of visualization to fast
@@ -847,6 +866,7 @@ export default class PathfindingVisualizer extends Component {
            <Dropdown.Item onClick={() => this.setAlgoToDijkstra()} href="#/action-1"><p>Dijkstra Algorithm</p></Dropdown.Item>
            <Dropdown.Item onClick={() => this.setAlgoToBFS()} href="#/action-3"><p>Breadth First Search</p></Dropdown.Item>
            <Dropdown.Item onClick={() => this.setAlgoToAStar()} href="#/action-2"><p>A* Search Algorithm</p></Dropdown.Item>
+           <Dropdown.Item onClick={() => this.setAlgoToGreedy()} href="#/action-2"><p>Greedy Search Algorithm</p></Dropdown.Item>
            <Dropdown.Item onClick={() => this.setAlgoToDFS()} href="#/action-2"><p>Depth First Search</p></Dropdown.Item>
            </Dropdown.Menu>
            </Dropdown>
