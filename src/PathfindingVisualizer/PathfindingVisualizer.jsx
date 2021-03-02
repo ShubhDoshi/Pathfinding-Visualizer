@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Node from './Node/Node';
 import {dijkstra, getNodesInShortestPathOrder} from '../algorithms/dijkstra';
 import {bfs, getNodesInShortestPathOrderBFS} from '../algorithms/bfs';
+import {dfs, getNodesInShortestPathOrderDFS} from '../algorithms/dfs';
 //import {bfs} from '../algorithms/bfs';
 import Dropdown from 'react-bootstrap/Dropdown'
 import { faSquareFull } from "@fortawesome/free-solid-svg-icons";
@@ -157,6 +158,19 @@ export default class PathfindingVisualizer extends Component {
         this.animateDijkstraSlow(visitedNodesInOrder, nodesInShortestPathOrder);
       }
     }
+    else if(this.state.algorithm==='DFS'){
+      const visitedNodesInOrder= dfs(grid, startNode, finishNode);
+      const nodesInShortestPathOrder = getNodesInShortestPathOrderDFS(finishNode);
+      if (this.state.speed==='fast'){
+        this.animateDijkstraFast(visitedNodesInOrder, nodesInShortestPathOrder);
+      }
+      else if(this.state.speed==='medium'){
+        this.animateDijkstraMedium(visitedNodesInOrder, nodesInShortestPathOrder);
+      }
+      else{
+        this.animateDijkstraSlow(visitedNodesInOrder, nodesInShortestPathOrder);
+      }
+    }
     else{
       alert("Please select an algorithm");
     }
@@ -170,6 +184,11 @@ export default class PathfindingVisualizer extends Component {
   //Set Algorithm to BFS
   setAlgoToBFS(){
     this.setState({algorithm: 'BFS'});
+  }
+
+  //Set Algorithm to BellmanFord
+  setAlgoToDFS(){
+    this.setState({algorithm: 'DFS'});
   }
 
   //Change speed of visualization to fast
@@ -806,8 +825,8 @@ export default class PathfindingVisualizer extends Component {
            </Dropdown.Toggle>
            <Dropdown.Menu>
            <Dropdown.Item onClick={() => this.setAlgoToDijkstra()} href="#/action-1"><p>Dijkstra Algorithm</p></Dropdown.Item>
-           <Dropdown.Item href="#/action-2"><p>Bellman-Ford Algorithm</p></Dropdown.Item>
            <Dropdown.Item onClick={() => this.setAlgoToBFS()} href="#/action-3"><p>Breadth First Search</p></Dropdown.Item>
+           <Dropdown.Item onClick={() => this.setAlgoToDFS()} href="#/action-2"><p>Depth First Search</p></Dropdown.Item>
            </Dropdown.Menu>
            </Dropdown>
            </li>
