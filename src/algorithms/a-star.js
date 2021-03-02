@@ -78,6 +78,7 @@ export function aStar(grid,startNode,finishNode){
         }
         close.push(q);
     }
+    return visitedNodesInOrder;
 }
 
 function getUnvisitedNeighbors(node, grid) {

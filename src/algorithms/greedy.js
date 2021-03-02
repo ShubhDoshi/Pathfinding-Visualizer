@@ -36,6 +36,7 @@ export function greedy(grid,startNode,finishNode){
             neighbors.splice(ind,1);
         }
     }
+    return visitedNodesInOrder;
 }
 
 function getUnvisitedNeighbors(node, grid) {

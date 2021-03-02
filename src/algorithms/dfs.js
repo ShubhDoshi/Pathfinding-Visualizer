@@ -22,7 +22,7 @@ export function dfs(grid, startNode,finishNode){
             }
         }
     }
-    
+    return visitedNodesInOrder;
 }
 
 function getNeighbors(node, grid) {
