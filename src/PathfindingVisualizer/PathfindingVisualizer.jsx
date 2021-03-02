@@ -783,20 +783,6 @@ export default class PathfindingVisualizer extends Component {
          </div>
          <ul className="nav navbar-nav">
          <div className="col-md-4 col-xs-12">
-         <li className="navigation dropdown">
-           <Dropdown>
-           <Dropdown.Toggle variant="success" id="dropdown-basic">
-              Algorithms <span className="caret"></span>
-           </Dropdown.Toggle>
-           <Dropdown.Menu>
-           <Dropdown.Item onClick={() => this.setAlgoToDijkstra()} href="#/action-1"><p>Dijkstra Algorithm</p></Dropdown.Item>
-           <Dropdown.Item href="#/action-2"><p>Bellman-Ford Algorithm</p></Dropdown.Item>
-           <Dropdown.Item onClick={() => this.setAlgoToBFS()} href="#/action-3"><p>Breadth First Search</p></Dropdown.Item>
-           </Dropdown.Menu>
-           </Dropdown>
-           </li>
-          </div>
-         <div className="col-md-4 col-xs-12">
            <li id="mazePattern" className="navigation dropdown">
            <Dropdown>
            <Dropdown.Toggle variant="success" id="dropdown-basic">
@@ -812,6 +798,20 @@ export default class PathfindingVisualizer extends Component {
            </Dropdown>
            </li>
            </div>
+         <div className="col-md-4 col-xs-12">
+         <li className="navigation dropdown">
+           <Dropdown>
+           <Dropdown.Toggle variant="success" id="dropdown-basic">
+              Algorithms <span className="caret"></span>
+           </Dropdown.Toggle>
+           <Dropdown.Menu>
+           <Dropdown.Item onClick={() => this.setAlgoToDijkstra()} href="#/action-1"><p>Dijkstra Algorithm</p></Dropdown.Item>
+           <Dropdown.Item href="#/action-2"><p>Bellman-Ford Algorithm</p></Dropdown.Item>
+           <Dropdown.Item onClick={() => this.setAlgoToBFS()} href="#/action-3"><p>Breadth First Search</p></Dropdown.Item>
+           </Dropdown.Menu>
+           </Dropdown>
+           </li>
+          </div>
            <div className="col-md-4 col-xs-12">
            <li className="dropdown">
            <Dropdown>
@@ -827,7 +827,7 @@ export default class PathfindingVisualizer extends Component {
            </li>
            </div>
         <div className="col-md-4 col-xs-12">
-           <li className="navigation"><button onClick={() => window.location.reload(false)} id='startButtonClearBoard' href="#">Clear Board</button></li>
+           <li id='clearBoard' className="navigation"><button onClick={() => window.location.reload(false)} id='startButtonClearBoard' href="#">Clear Board</button></li>
            </div>
            <div className="col-md-4 col-xs-12">
            <li id='visualize'><button id='startButtonStart' onClick={() => this.visualize()}>
