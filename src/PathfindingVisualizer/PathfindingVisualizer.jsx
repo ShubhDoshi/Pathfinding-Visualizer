@@ -123,7 +123,7 @@ export default class PathfindingVisualizer extends Component {
     }
     if(nodesInShortestPathOrder.length<=1){
       setTimeout(() => {
-      alert("Shortest Path Not Found!!");
+      alert("Path Not Found!!");
       },1000);
     }
   }
@@ -902,7 +902,7 @@ export default class PathfindingVisualizer extends Component {
      </nav>
    </div>
    <div>
-    <p className="a"><div className="col-lg-2 col-md-4 col-xs-12"><FontAwesomeIcon icon={faSquareFull} id='startNode' />Start-Node </div><div className="col-lg-2 col-md-4 col-xs-12"><FontAwesomeIcon icon={faSquareFull} id='targetNode' />Target-Node </div><div className="col-lg-2 col-md-4 col-xs-12"><FontAwesomeIcon icon={faSquareFull} id='wallNode'/>Wall-Node </div><div className="col-lg-2 col-md-4 col-xs-12"><FontAwesomeIcon icon={faSquareFull} id='visitedNode'/>Visited-Nodes </div><div className="col-lg-2 col-md-4 col-xs-12"><FontAwesomeIcon icon={faSquareFull} id='unvisitedNode'/>Unvisited-Node </div><div className="col-lg-2 col-md-4 col-xs-12"><FontAwesomeIcon icon={faSquareFull} id='shortestPathNode'/>Shortest-path-Node </div></p>
+    <p className="a"><div className="col-lg-2 col-md-4 col-xs-12"><FontAwesomeIcon icon={faSquareFull} id='startNode' />Start-Node </div><div className="col-lg-2 col-md-4 col-xs-12"><FontAwesomeIcon icon={faSquareFull} id='targetNode' />Target-Node </div><div className="col-lg-2 col-md-4 col-xs-12"><FontAwesomeIcon icon={faSquareFull} id='wallNode'/>Wall-Node </div><div className="col-lg-2 col-md-4 col-xs-12"><FontAwesomeIcon icon={faSquareFull} id='visitedNode'/>Visited-Node </div><div className="col-lg-2 col-md-4 col-xs-12"><FontAwesomeIcon icon={faSquareFull} id='unvisitedNode'/>Unvisited-Node </div><div className="col-lg-2 col-md-4 col-xs-12"><FontAwesomeIcon icon={faSquareFull} id='shortestPathNode'/>Final-path-Node </div></p>
    </div>
    <br/>
    </body>
