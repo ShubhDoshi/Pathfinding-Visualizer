@@ -3,7 +3,7 @@ import Node from './Node/Node';
 import {dijkstra, getNodesInShortestPathOrder} from '../algorithms/dijkstra';
 import {bfs, getNodesInShortestPathOrderBFS} from '../algorithms/bfs';
 import {dfs, getNodesInShortestPathOrderDFS} from '../algorithms/dfs';
-//import {bfs} from '../algorithms/bfs';
+import {aStar,getNodesInShortestPathOrderAStar} from '../algorithms/a-star';
 import Dropdown from 'react-bootstrap/Dropdown'
 import { faSquareFull } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -132,6 +132,8 @@ export default class PathfindingVisualizer extends Component {
     const {grid} = this.state;
     const startNode = grid[START_NODE_ROW][START_NODE_COL];
     const finishNode = grid[FINISH_NODE_ROW][FINISH_NODE_COL];
+    startNode.isWall=false;
+    finishNode.isWall=false;
     if (this.state.algorithm==='dijkstra'){
       const visitedNodesInOrder = dijkstra(grid, startNode, finishNode);
       const nodesInShortestPathOrder = getNodesInShortestPathOrder(finishNode);
@@ -171,6 +173,19 @@ export default class PathfindingVisualizer extends Component {
         this.animateDijkstraSlow(visitedNodesInOrder, nodesInShortestPathOrder);
       }
     }
+    else if(this.state.algorithm==='a-star'){
+      const visitedNodesInOrder= aStar(grid, startNode, finishNode);
+      const nodesInShortestPathOrder = getNodesInShortestPathOrderAStar(finishNode);
+      if (this.state.speed==='fast'){
+        this.animateDijkstraFast(visitedNodesInOrder, nodesInShortestPathOrder);
+      }
+      else if(this.state.speed==='medium'){
+        this.animateDijkstraMedium(visitedNodesInOrder, nodesInShortestPathOrder);
+      }
+      else{
+        this.animateDijkstraSlow(visitedNodesInOrder, nodesInShortestPathOrder);
+      }
+    }
     else{
       alert("Please select an algorithm");
     }
@@ -186,9 +201,14 @@ export default class PathfindingVisualizer extends Component {
     this.setState({algorithm: 'BFS'});
   }
 
-  //Set Algorithm to BellmanFord
+  //Set Algorithm to DFS
   setAlgoToDFS(){
     this.setState({algorithm: 'DFS'});
+  }
+
+  //Set Algorithm to A*
+  setAlgoToAStar(){
+    this.setState({algorithm: 'a-star'});
   }
 
   //Change speed of visualization to fast
@@ -826,6 +846,7 @@ export default class PathfindingVisualizer extends Component {
            <Dropdown.Menu>
            <Dropdown.Item onClick={() => this.setAlgoToDijkstra()} href="#/action-1"><p>Dijkstra Algorithm</p></Dropdown.Item>
            <Dropdown.Item onClick={() => this.setAlgoToBFS()} href="#/action-3"><p>Breadth First Search</p></Dropdown.Item>
+           <Dropdown.Item onClick={() => this.setAlgoToAStar()} href="#/action-2"><p>A* Search Algorithm</p></Dropdown.Item>
            <Dropdown.Item onClick={() => this.setAlgoToDFS()} href="#/action-2"><p>Depth First Search</p></Dropdown.Item>
            </Dropdown.Menu>
            </Dropdown>
