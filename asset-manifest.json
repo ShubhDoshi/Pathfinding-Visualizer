@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Pathfinding-Visualizer/static/css/main.acf20c77.chunk.css",
+    "main.css": "/Pathfinding-Visualizer/static/css/main.e3d9f614.chunk.css",
     "main.js": "/Pathfinding-Visualizer/static/js/main.9f3d89fb.chunk.js",
     "main.js.map": "/Pathfinding-Visualizer/static/js/main.9f3d89fb.chunk.js.map",
     "runtime-main.js": "/Pathfinding-Visualizer/static/js/runtime-main.d8f9cdfe.js",
@@ -10,13 +10,13 @@
     "static/js/3.2f237935.chunk.js": "/Pathfinding-Visualizer/static/js/3.2f237935.chunk.js",
     "static/js/3.2f237935.chunk.js.map": "/Pathfinding-Visualizer/static/js/3.2f237935.chunk.js.map",
     "index.html": "/Pathfinding-Visualizer/index.html",
-    "static/css/main.acf20c77.chunk.css.map": "/Pathfinding-Visualizer/static/css/main.acf20c77.chunk.css.map",
+    "static/css/main.e3d9f614.chunk.css.map": "/Pathfinding-Visualizer/static/css/main.e3d9f614.chunk.css.map",
     "static/js/2.c2409460.chunk.js.LICENSE.txt": "/Pathfinding-Visualizer/static/js/2.c2409460.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.d8f9cdfe.js",
     "static/js/2.c2409460.chunk.js",
-    "static/css/main.acf20c77.chunk.css",
+    "static/css/main.e3d9f614.chunk.css",
     "static/js/main.9f3d89fb.chunk.js"
   ]
 }
