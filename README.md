@@ -10,6 +10,10 @@ https://shubhdoshi.github.io/Pathfinding-Visualizer/
 
 ![Alt Text](https://github.com/ShubhDoshi/Pathfinding-Visualizer/blob/601d1c3b77fa6f11b44848a05441ec2674bf0c80/Sample-1.gif)
 
+## Sample (A*(A-star) Search Algorithm with Maze using Depth First Search):
+
+![Alt Text](https://github.com/ShubhDoshi/Pathfinding-Visualizer/blob/983eb5736b4d89521eba27175735b94d7d945a47/Sample-2.gif)
+
 ## Pathfinding Algorithms:
 1. Dijkstra Algorithm
 2. Breadth First Search
