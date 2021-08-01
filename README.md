@@ -6,11 +6,11 @@ Check out the Pathfinding Visualizer in the link below and experiment with the P
 
 https://shubhdoshi.github.io/Pathfinding-Visualizer/
 
-## Sample (Dijkstra's Algorithm with Maze using Kruskal's Algorithm):
+## Sample-1 (Dijkstra's Algorithm with Maze using Kruskal's Algorithm):
 
 ![Alt Text](https://github.com/ShubhDoshi/Pathfinding-Visualizer/blob/601d1c3b77fa6f11b44848a05441ec2674bf0c80/Sample-1.gif)
 
-## Sample (A*(A-star) Search Algorithm with Maze using Depth First Search):
+## Sample-2 (A*(A-star) Search Algorithm with Maze using Depth First Search):
 
 ![Alt Text](https://github.com/ShubhDoshi/Pathfinding-Visualizer/blob/983eb5736b4d89521eba27175735b94d7d945a47/Sample-2.gif)
 
