@@ -6,6 +6,8 @@ Check out the Pathfinding Visualizer in the link below and experiment with the P
 
 https://shubhdoshi.github.io/Pathfinding-Visualizer/
 
+## Sample (Dijkstra's Algorithm with Maze using Kruskal's Algorithm):
+
 ![Alt Text](https://github.com/ShubhDoshi/Pathfinding-Visualizer/blob/601d1c3b77fa6f11b44848a05441ec2674bf0c80/Sample-1.gif)
 
 ## Pathfinding Algorithms:
