@@ -6,3 +6,19 @@ Check out the Pathfinding Visualizer in the link below and experiment with the P
 
 https://shubhdoshi.github.io/Pathfinding-Visualizer/
 
+## Pathfinding Algorithms:
+1. Dijkstra Algorithm
+2. Breadth First Search
+3. A* Search Algorithm
+4. Greedy Search Algorithm
+5. Depth First Search
+
+## Maze Generation Algorithms:
+1. Maze using Kruskal's Algorithm
+2. Maze using Depth First Search
+3. Maze using Prim's Algorithm
+4. Adding Vertical Walls
+5. Random Maze Generator
+
+
+
